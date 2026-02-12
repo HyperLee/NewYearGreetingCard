@@ -119,8 +119,8 @@ public static class GreetingCardData
 {
     public static readonly IReadOnlyList<GreetingCard> Cards = [
         new GreetingCard(1, "寫實風", CardStyle.Realistic, [
-            new GreetingMessage(1, "馬到成功，新年快樂！"),
-            new GreetingMessage(2, "龍馬精神，萬事如意！"),
+            new GreetingMessage(1, "馬到成功，新年快樂！", "馬年專屬"),
+            new GreetingMessage(2, "龍馬精神，萬事如意！", "馬年專屬"),
             // ...
         ]),
         // ... 10+ cards

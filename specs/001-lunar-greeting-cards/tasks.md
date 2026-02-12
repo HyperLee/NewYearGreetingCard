@@ -31,12 +31,12 @@
 
 **⚠️ CRITICAL**: 所有 User Story 均依賴此階段完成。
 
-- [ ] T004 [P] 建立 CardStyle 列舉（10 種風格：Realistic、Cute、SciFi、InkWash、PaperCut、Classical、Minimalist、FolkArt、Illustration、PopArt）於 NewYearGreetingCard/Models/CardStyle.cs
-- [ ] T005 [P] 建立 GreetingMessage record（Id、Text、Category 屬性）於 NewYearGreetingCard/Models/GreetingMessage.cs
-- [ ] T006 [P] 建立 GreetingCard record（Id、StyleName、Style、Description、CssClass、Messages 屬性）於 NewYearGreetingCard/Models/GreetingCard.cs
-- [ ] T007 建立 IGreetingCardService 介面（GetAllCards、GetCardById、GetMessagesByCardId 方法）於 NewYearGreetingCard/Services/IGreetingCardService.cs
-- [ ] T008 建立 GreetingCardService 實作（注入 ILogger，從 GreetingCardData 讀取資料）於 NewYearGreetingCard/Services/GreetingCardService.cs
-- [ ] T009 建立 GreetingCardData 靜態集合（10 張賀卡、50+ 句不重複祝賀詞，每張賀卡至少 5 句祝賀詞且至少 2 句專屬）於 NewYearGreetingCard/Data/GreetingCardData.cs
+- [ ] T004 [P] 建立 CardStyle 列舉（10 種風格：Realistic、Cute、SciFi、InkWash、PaperCut、Classical、Minimalist、FolkArt、Illustration、PopArt）於 NewYearGreetingCard/Models/CardStyle.cs，含 XML 文件註解
+- [ ] T005 [P] 建立 GreetingMessage record（Id、Text、Category 屬性）於 NewYearGreetingCard/Models/GreetingMessage.cs，含 XML 文件註解與 <example> 區段
+- [ ] T006 [P] 建立 GreetingCard record（Id、StyleName、Style、Description、CssClass、Messages 屬性）於 NewYearGreetingCard/Models/GreetingCard.cs，含 XML 文件註解與 <example> 區段
+- [ ] T007 建立 IGreetingCardService 介面（GetAllCards、GetCardById、GetMessagesByCardId 方法）於 NewYearGreetingCard/Services/IGreetingCardService.cs，含 XML 文件註解
+- [ ] T008 建立 GreetingCardService 實作（注入 ILogger，從 GreetingCardData 讀取資料）於 NewYearGreetingCard/Services/GreetingCardService.cs，含 XML 文件註解
+- [ ] T009 建立 GreetingCardData 靜態集合（10 張賀卡、50+ 句不重複祝賀詞，每張賀卡至少 5 句祝賀詞且至少 2 句專屬）於 NewYearGreetingCard/Data/GreetingCardData.cs，含 XML 文件註解
 - [ ] T010 在 NewYearGreetingCard/Program.cs 中註冊 IGreetingCardService 為 Singleton 至 DI 容器
 - [ ] T011 [P] 建立測試基礎設施：TestWebApplicationFactory 於 NewYearGreetingCard.Tests/Integration/TestWebApplicationFactory.cs，GreetingCardTestData 於 NewYearGreetingCard.Tests/TestData/GreetingCardTestData.cs
 
@@ -78,7 +78,7 @@
 
 ### Tests for User Story 2
 
-- [ ] T020 [P] [US2] 撰寫整合測試驗證賀卡頁面顯示祝賀詞（每張至少 5 句、包含馬年主題祝賀詞）於 NewYearGreetingCard.Tests/Integration/Pages/IndexPageTests.cs
+- [ ] T020 [P] [US2] 撰寫整合測試驗證賀卡詳情頁顯示祝賀詞（每張至少 5 句、包含馬年主題祝賀詞）於 NewYearGreetingCard.Tests/Integration/Pages/CardDetailPageTests.cs
 
 ### Implementation for User Story 2
 
@@ -95,11 +95,17 @@
 
 **Independent Test**: 在賀卡頁面點擊任一句祝賀詞 → 確認剪貼簿已複製該文字 → 頁面顯示「已複製！」提示 → 數秒後提示消失。
 
+### Tests for User Story 3
+
+> **先寫測試、確認失敗，再進行實作**
+
+- [ ] T023 [P] [US3] 撰寫整合測試驗證賀卡詳情頁包含複製按鈕 HTML 結構（每句祝賀詞旁有 data-copy-text 屬性與複製按鈕）於 NewYearGreetingCard.Tests/Integration/Pages/CardDetailPageTests.cs
+
 ### Implementation for User Story 3
 
-- [ ] T023 [US3] 實作剪貼簿複製函式 copyToClipboard（優先 navigator.clipboard.writeText，備援 execCommand + 「請按 Ctrl+C 複製」提示）於 NewYearGreetingCard/wwwroot/js/site.js
-- [ ] T024 [US3] 為 _GreetingMessages.cshtml 中每句祝賀詞加入複製按鈕與點擊事件綁定，顯示「已複製！」視覺回饋提示於 NewYearGreetingCard/Pages/Shared/_GreetingMessages.cshtml
-- [ ] T025 [US3] 新增複製回饋提示的 CSS 樣式（toast/tooltip 動畫、自動消失效果）於 NewYearGreetingCard/wwwroot/css/site.css
+- [ ] T024 [US3] 實作剪貼簿複製函式 copyToClipboard（優先 navigator.clipboard.writeText，備援 execCommand + 「請按 Ctrl+C 複製」提示，處理快速連續點擊情境確保每次複製顯示最新回饋訊息）於 NewYearGreetingCard/wwwroot/js/site.js
+- [ ] T025 [US3] 為 _GreetingMessages.cshtml 中每句祝賀詞加入複製按鈕與點擊事件綁定，顯示「已複製！」視覺回饋提示於 NewYearGreetingCard/Pages/Shared/_GreetingMessages.cshtml
+- [ ] T026 [US3] 新增複製回饋提示的 CSS 樣式（toast/tooltip 動畫、自動消失效果）於 NewYearGreetingCard/wwwroot/css/site.css
 
 **Checkpoint**: User Story 1 + 2 + 3 完成 — 使用者可瀏覽賀卡、查看祝賀詞並一鍵複製
 
@@ -111,12 +117,18 @@
 
 **Independent Test**: 在任一賀卡頁面 → 確認導航列列出所有賀卡風格名稱 → 點擊任一導航項目跳轉成功 → 當前賀卡高亮 → 使用前後頁按鈕切換。
 
+### Tests for User Story 4
+
+> **先寫測試、確認失敗，再進行實作**
+
+- [ ] T027 [P] [US4] 撰寫整合測試驗證導航列功能（所有賀卡風格名稱連結均渲染、當前賀卡高亮 active class、前後頁按鈕存在）於 NewYearGreetingCard.Tests/Integration/Pages/CardDetailPageTests.cs
+
 ### Implementation for User Story 4
 
-- [ ] T026 [US4] 建立 _CardNavigation.cshtml Partial View（顯示所有賀卡風格名稱連結，支援當前賀卡高亮 active class）於 NewYearGreetingCard/Pages/Shared/_CardNavigation.cshtml
-- [ ] T027 [US4] 將 _CardNavigation 整合至 _Layout.cshtml 頂部導航列，以下拉選單或水平連結列表呈現於 NewYearGreetingCard/Pages/Shared/_Layout.cshtml
-- [ ] T028 [US4] 在賀卡詳情頁新增「上一張」與「下一張」導航按鈕（最後一張可回到第一張）於 NewYearGreetingCard/Pages/Cards/Detail.cshtml
-- [ ] T029 [US4] 設定導航列 active 狀態樣式與賀卡導航佈局 CSS 於 NewYearGreetingCard/Pages/Shared/_Layout.cshtml.css
+- [ ] T028 [US4] 建立 _CardNavigation.cshtml Partial View（顯示所有賀卡風格名稱連結，支援當前賀卡高亮 active class）於 NewYearGreetingCard/Pages/Shared/_CardNavigation.cshtml
+- [ ] T029 [US4] 將 _CardNavigation 整合至 _Layout.cshtml 頂部導航列，以下拉選單或水平連結列表呈現，確保導航列使用伺服器端渲染不依賴 JavaScript 初始化即可運作於 NewYearGreetingCard/Pages/Shared/_Layout.cshtml
+- [ ] T030 [US4] 在賀卡詳情頁新增「上一張」與「下一張」導航按鈕（最後一張可回到第一張）於 NewYearGreetingCard/Pages/Cards/Detail.cshtml
+- [ ] T031 [US4] 設定導航列 active 狀態樣式與賀卡導航佈局 CSS 於 NewYearGreetingCard/Pages/Shared/_Layout.cshtml.css
 
 **Checkpoint**: User Story 1 + 2 + 3 + 4 完成 — 完整的賀卡瀏覽、祝賀詞顯示、複製與導航功能
 
@@ -128,14 +140,20 @@
 
 **Independent Test**: 逐一瀏覽 10 張賀卡 → 確認每張風格明顯不同 → 每張包含馬的意象 → 每張包含紅色/金色/燈籠/春聯等 CNY 元素 → 圖案佔主要面積。
 
+### Tests for User Story 5
+
+> **先寫測試、確認失敗，再進行實作**
+
+- [ ] T032 [P] [US5] 撰寫整合測試驗證每張賀卡套用對應的 CssClass、包含 SVG 元素、且 10 張賀卡的 CssClass 均不重複於 NewYearGreetingCard.Tests/Integration/Pages/CardDetailPageTests.cs
+
 ### Implementation for User Story 5
 
-- [ ] T030 [US5] 強化 Realistic 與 Cute 風格的 CSS/SVG 藝術（寫實漸層陰影馬、可愛圓潤粉彩馬）與 CNY 傳統元素於 NewYearGreetingCard/wwwroot/css/cards/card-styles.css
-- [ ] T031 [US5] 強化 SciFi 與 InkWash 風格的 CSS/SVG 藝術（霓虹未來感馬、水墨留白馬）與 CNY 傳統元素於 NewYearGreetingCard/wwwroot/css/cards/card-styles.css
-- [ ] T032 [US5] 強化 PaperCut 與 Classical 風格的 CSS/SVG 藝術（紅底鏤空馬、書法印章馬）與 CNY 傳統元素於 NewYearGreetingCard/wwwroot/css/cards/card-styles.css
-- [ ] T033 [US5] 強化 Minimalist、FolkArt、Illustration、PopArt 四種風格的 CSS/SVG 藝術與 CNY 傳統元素於 NewYearGreetingCard/wwwroot/css/cards/card-styles.css
-- [ ] T034 [US5] 完善所有 10 張賀卡在 Detail.cshtml 中的內嵌 SVG 馬年圖案，確保每張賀卡圖案為主、文字為輔的版面配置於 NewYearGreetingCard/Pages/Cards/Detail.cshtml
-- [ ] T035 [US5] 視覺品質驗證：確認 10 張賀卡涵蓋至少 5 種以上不同藝術風格（FR-010）、每張包含馬主題圖案與 CNY 元素（FR-002）、以圖案為主設計（FR-009）
+- [ ] T033 [US5] 強化 Realistic 與 Cute 風格的 CSS/SVG 藝術（寫實漸層陰影馬、可愛圓潤粉彩馬）與 CNY 傳統元素於 NewYearGreetingCard/wwwroot/css/cards/card-styles.css
+- [ ] T034 [US5] 強化 SciFi 與 InkWash 風格的 CSS/SVG 藝術（霓虹未來感馬、水墨留白馬）與 CNY 傳統元素於 NewYearGreetingCard/wwwroot/css/cards/card-styles.css
+- [ ] T035 [US5] 強化 PaperCut 與 Classical 風格的 CSS/SVG 藝術（紅底鏤空馬、書法印章馬）與 CNY 傳統元素於 NewYearGreetingCard/wwwroot/css/cards/card-styles.css
+- [ ] T036 [US5] 強化 Minimalist、FolkArt、Illustration、PopArt 四種風格的 CSS/SVG 藝術與 CNY 傳統元素於 NewYearGreetingCard/wwwroot/css/cards/card-styles.css
+- [ ] T037 [US5] 完善所有 10 張賀卡在 Detail.cshtml 中的內嵌 SVG 馬年圖案，確保每張賀卡圖案為主、文字為輔的版面配置於 NewYearGreetingCard/Pages/Cards/Detail.cshtml
+- [ ] T038 [US5] 視覺品質驗證：確認 10 張賀卡涵蓋至少 5 種以上不同藝術風格（FR-010）、每張包含馬主題圖案與 CNY 元素（FR-002）、以圖案為主設計（FR-009）
 
 **Checkpoint**: 所有 5 個 User Story 完成 — 全功能農曆馬年賀卡網站
 
@@ -145,10 +163,9 @@
 
 **Purpose**: 跨 User Story 的品質改善與最終驗證
 
-- [ ] T036 [P] 為所有公開 API 加入 XML 文件註解（Models/、Services/、Data/ 中的類別與方法）
-- [ ] T037 [P] 程式碼清理與格式化：確保符合 .editorconfig 規範、PascalCase 命名、檔案範圍命名空間
-- [ ] T038 依 quickstart.md 執行完整驗證（dotnet build、dotnet run、dotnet test 全部通過）
-- [ ] T039 效能驗證：確認 FCP < 1.5 秒、LCP < 2.5 秒（plan.md 效能目標）
+- [ ] T039 [P] 程式碼清理與格式化：確保符合 .editorconfig 規範、PascalCase 命名、檔案範圍命名空間
+- [ ] T040 依 quickstart.md 執行完整驗證（dotnet build、dotnet run、dotnet test 全部通過）
+- [ ] T041 效能驗證：確認 FCP < 1.5 秒、LCP < 2.5 秒（plan.md 效能目標）
 
 ---
 
@@ -187,6 +204,9 @@
 - Foundational 中 T004/T005/T006 可平行（不同檔案）；T011 可與 T007-T010 平行
 - US1 中 T012/T013 可平行（不同測試檔案）；T015/T016 可平行（不同頁面檔案）
 - US2 中 T020 可與 T012/T013 平行（不同測試檔案）
+- US3 中 T023 可與 US1/US2 測試任務平行（不同測試檔案）
+- US4 中 T027 可與 US2/US3 平行進行（不同檔案群組）
+- US5 中 T032 可與 US3/US4 平行進行（不同檔案群組）
 - US4 可與 US2/US3 平行進行（不同檔案群組）
 - US5 可與 US3/US4 平行進行（不同檔案群組）
 
