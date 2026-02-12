@@ -19,9 +19,9 @@
 
 **Purpose**: 建立缺少的專案目錄結構與測試專案
 
-- [ ] T001 建立專案目錄結構 Models/、Data/、Services/、Pages/Cards/ 於 NewYearGreetingCard/ 下，以及 wwwroot/css/cards/ 目錄
-- [ ] T002 建立測試專案 NewYearGreetingCard.Tests/NewYearGreetingCard.Tests.csproj，加入 xUnit、Moq、Microsoft.AspNetCore.Mvc.Testing 相依套件，並建立 Unit/Models/、Unit/Services/、Integration/Pages/、TestData/ 目錄結構
-- [ ] T003 [P] 更新 NewYearGreetingCard/Pages/_ViewImports.cshtml 加入專案命名空間與 Models 參考，並在 NewYearGreetingCard/Pages/Shared/_Layout.cshtml 中新增 wwwroot/css/cards/card-styles.css 樣式表參考
+- [X] T001 建立專案目錄結構 Models/、Data/、Services/、Pages/Cards/ 於 NewYearGreetingCard/ 下，以及 wwwroot/css/cards/ 目錄
+- [X] T002 建立測試專案 NewYearGreetingCard.Tests/NewYearGreetingCard.Tests.csproj，加入 xUnit、Moq、Microsoft.AspNetCore.Mvc.Testing 相依套件，並建立 Unit/Models/、Unit/Services/、Integration/Pages/、TestData/ 目錄結構
+- [X] T003 [P] 更新 NewYearGreetingCard/Pages/_ViewImports.cshtml 加入專案命名空間與 Models 參考，並在 NewYearGreetingCard/Pages/Shared/_Layout.cshtml 中新增 wwwroot/css/cards/card-styles.css 樣式表參考
 
 ---
 
