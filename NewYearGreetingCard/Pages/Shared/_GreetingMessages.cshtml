@@ -1,0 +1,33 @@
+@model System.Collections.Generic.IReadOnlyList<NewYearGreetingCard.Models.GreetingMessage>
+
+<div class="greeting-messages mt-5">
+    <h3 class="mb-4 text-center text-secondary">精選祝賀詞</h3>
+    <div class="row g-3">
+        @foreach (var message in Model)
+        {
+            var feedbackId = $"copy-feedback-{message.Id}";
+            <div class="col-md-6 col-lg-12">
+                <div class="card h-100 border-0 shadow-sm greeting-message">
+                    <div class="card-body">
+                        <div class="d-flex flex-column flex-md-row gap-3 align-items-start align-items-md-center justify-content-between">
+                            <div class="greeting-message-content">
+                                <p class="greeting-message-text mb-1 fs-5">@message.Text</p>
+                                <span class="badge bg-danger rounded-pill">@message.Category</span>
+                            </div>
+                            <div class="greeting-message-actions">
+                                <button type="button"
+                                        class="btn btn-sm btn-outline-secondary greeting-copy-button"
+                                        data-copy-text="@message.Text"
+                                        data-copy-feedback="@feedbackId"
+                                        aria-label="複製祝賀詞">
+                                    複製
+                                </button>
+                                <span id="@feedbackId" class="greeting-copy-feedback" role="status" aria-live="polite">已複製！</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

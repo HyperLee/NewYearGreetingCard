@@ -1,0 +1,25 @@
+@using NewYearGreetingCard.Models
+@model IReadOnlyList<GreetingCard>
+
+@{
+    // Determine the current card ID from the query string for active highlighting
+    int? currentCardId = null;
+    if (ViewContext.HttpContext.Request.Query.TryGetValue("id", out var idValue) && int.TryParse(idValue, out var parsedId))
+    {
+        currentCardId = parsedId;
+    }
+}
+
+<ul class="navbar-nav card-navigation-list">
+    @foreach (var card in Model)
+    {
+        var isActive = currentCardId == card.Id;
+        <li class="nav-item">
+            <a class="nav-link card-nav-link @(isActive ? "active" : "")"
+               href="/Cards/Detail?id=@card.Id"
+               aria-current="@(isActive ? "page" : null)">
+                @card.StyleName
+            </a>
+        </li>
+    }
+</ul>

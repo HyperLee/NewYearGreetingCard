@@ -1,0 +1,27 @@
+@page
+@model NewYearGreetingCard.Pages.Cards.IndexModel
+@{
+    ViewData["Title"] = "賀卡總覽";
+}
+
+<div class="container">
+    <h1 class="cny-title text-center mb-4">🐴 賀卡總覽</h1>
+    <p class="text-center text-muted mb-4">精選 @Model.Cards.Count 張不同風格的馬年賀卡</p>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        @foreach (var card in Model.Cards)
+        {
+            <div class="col">
+                <div class="card h-100 card-preview @card.CssClass">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">@card.StyleName</h5>
+                        <p class="card-text">@card.Description</p>
+                        <a asp-page="/Cards/Detail" asp-route-id="@card.Id" class="btn btn-cny btn-sm">
+                            查看賀卡 →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

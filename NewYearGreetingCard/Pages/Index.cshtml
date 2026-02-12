@@ -1,10 +1,12 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "農曆馬年賀卡";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-center cny-hero">
+    <h1 class="display-4 cny-title">🐴 農曆馬年賀卡 🧧</h1>
+    <p class="lead">西元 2026 年 ・ 農曆丙午年 ・ 生肖馬年</p>
+    <p>精選 10 張不同風格的馬年賀卡，搭配祝賀詞，祝您馬到成功！</p>
+    <a asp-page="/Cards/Index" class="btn btn-cny btn-lg mt-3">瀏覽賀卡集 →</a>
 </div>

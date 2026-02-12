@@ -28,6 +28,14 @@
                             <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
                         </li>
                     </ul>
+                    @{
+                        var cardService = ViewContext.HttpContext.RequestServices.GetService<NewYearGreetingCard.Services.IGreetingCardService>();
+                        if (cardService is not null)
+                        {
+                            var allCards = cardService.GetAllCards();
+                            <partial name="_CardNavigation" model="allCards" />
+                        }
+                    }
                 </div>
             </div>
         </nav>

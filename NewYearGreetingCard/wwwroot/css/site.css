@@ -1,3 +1,17 @@
+/* ===== Lunar New Year Theme Variables ===== */
+:root {
+    --cny-red: #c8102e;
+    --cny-red-dark: #a00d24;
+    --cny-gold: #d4a843;
+    --cny-gold-light: #f0d68a;
+    --cny-crimson: #dc143c;
+    --cny-ivory: #fffff0;
+    --cny-dark: #1a1a2e;
+    --cny-bg: #fdf8f0;
+    --cny-text: #2d2d2d;
+    --cny-border-radius: 12px;
+}
+
 html {
   font-size: 14px;
 }
@@ -19,6 +33,8 @@ html {
 
 body {
   margin-bottom: 60px;
+  background-color: var(--cny-bg);
+  color: var(--cny-text);
 }
 
 .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
@@ -28,4 +44,131 @@ body {
 
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
+}
+
+/* ===== CNY Global Styles ===== */
+
+.cny-title {
+    color: var(--cny-red);
+    font-weight: 700;
+}
+
+.cny-hero {
+    padding: 3rem 1rem;
+}
+
+.cny-hero .lead {
+    color: var(--cny-gold);
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+.btn-cny {
+    background-color: var(--cny-red);
+    border-color: var(--cny-red);
+    color: #fff;
+}
+
+.btn-cny:hover,
+.btn-cny:focus {
+    background-color: var(--cny-red-dark);
+    border-color: var(--cny-red-dark);
+    color: #fff;
+}
+
+/* Card preview grid */
+.card-preview {
+    border: 2px solid var(--cny-gold-light);
+    border-radius: var(--cny-border-radius);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card-preview:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(200, 16, 46, 0.15);
+}
+
+/* Card detail page */
+.card-detail {
+    border: 2px solid var(--cny-gold-light);
+    border-radius: var(--cny-border-radius);
+    background: #fff;
+    overflow: hidden;
+}
+
+.card-art {
+    background: var(--cny-ivory);
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-svg {
+    max-width: 100%;
+    height: auto;
+    max-height: 300px;
+}
+
+.card-description {
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+/* Greeting copy button + feedback */
+.greeting-message-actions {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.greeting-copy-button {
+    border-color: var(--cny-gold);
+    color: var(--cny-red);
+    font-weight: 600;
+}
+
+.greeting-copy-button:hover,
+.greeting-copy-button:focus {
+    background-color: var(--cny-red);
+    border-color: var(--cny-red);
+    color: #fff;
+}
+
+.greeting-copy-feedback {
+    position: absolute;
+    top: -0.75rem;
+    right: 0;
+    background: var(--cny-red);
+    color: #fff;
+    padding: 0.25rem 0.65rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    opacity: 0;
+    transform: translateY(0.5rem) scale(0.95);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    pointer-events: none;
+    white-space: nowrap;
+    box-shadow: 0 6px 16px rgba(200, 16, 46, 0.2);
+}
+
+.greeting-copy-feedback.is-visible {
+    opacity: 1;
+    transform: translateY(-0.35rem) scale(1);
+    animation: greeting-feedback-pop 0.25s ease-out;
+}
+
+.greeting-copy-feedback.is-fallback {
+    background: var(--cny-gold);
+    color: var(--cny-dark);
+}
+
+@keyframes greeting-feedback-pop {
+    0% {
+        transform: translateY(0.5rem) scale(0.9);
+    }
+    100% {
+        transform: translateY(-0.35rem) scale(1);
+    }
 }

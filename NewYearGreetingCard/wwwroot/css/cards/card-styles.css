@@ -1,0 +1,441 @@
+/* ===== 10 Card Style Base CSS - Enhanced for Phase 7 ===== */
+
+/* Common Transitions */
+.card-detail {
+    transition: all 0.3s ease;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.card-art {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-art .card-svg {
+    position: relative;
+    z-index: 1;
+}
+
+/* --- 1. Realistic 寫實風 --- */
+.card-style-realistic {
+    --card-primary: #5c3a21;
+    --card-secondary: #c68e17;
+    --card-accent: #c8102e;
+    --card-bg: linear-gradient(180deg, #fef6e4 0%, #e8c38c 100%);
+    color: var(--card-primary);
+    box-shadow: 0 12px 24px rgba(92, 58, 33, 0.35);
+    border: 1px solid #8b4513;
+}
+
+.card-style-realistic .card-art {
+    background: radial-gradient(circle at 20% 20%, rgba(255, 215, 0, 0.35), transparent 50%),
+        radial-gradient(circle at 85% 15%, rgba(200, 16, 46, 0.2), transparent 45%),
+        var(--card-bg);
+    border-bottom: 5px solid var(--card-secondary);
+}
+
+.card-style-realistic .card-art::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 36px;
+    background: linear-gradient(90deg, rgba(200, 16, 46, 0.3), rgba(255, 215, 0, 0.25));
+    opacity: 0.8;
+    z-index: 0;
+}
+
+.card-style-realistic .card-svg {
+    color: var(--card-primary);
+    filter: drop-shadow(4px 4px 8px rgba(0,0,0,0.4));
+}
+
+/* --- 2. Cute 可愛風 --- */
+.card-style-cute {
+    --card-primary: #ff6fae;
+    --card-secondary: #87ceeb;
+    --card-bg: linear-gradient(135deg, #fff0f7 0%, #ffe4f2 100%);
+    color: #d14785;
+    border-radius: 24px;
+    box-shadow: 0 8px 15px rgba(255, 105, 180, 0.2);
+}
+
+.card-style-cute .card-art {
+    background: radial-gradient(circle at 20% 30%, rgba(255, 182, 193, 0.6), transparent 55%),
+        radial-gradient(circle at 80% 25%, rgba(255, 215, 0, 0.35), transparent 45%),
+        var(--card-bg);
+    border-bottom: 4px dashed var(--card-primary);
+}
+
+.card-style-cute .card-art::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.6) 0 6px, transparent 7px);
+    background-size: 32px 32px;
+    opacity: 0.4;
+    z-index: 0;
+}
+
+.card-style-cute .card-svg {
+    color: var(--card-primary);
+}
+
+/* --- 3. SciFi 科幻風 --- */
+.card-style-scifi {
+    --card-primary: #00ffff;
+    --card-secondary: #ff00ff;
+    --card-bg: radial-gradient(circle at 50% 20%, rgba(0, 255, 255, 0.25), transparent 60%),
+        linear-gradient(180deg, #050510 0%, #101934 100%);
+    color: var(--card-primary);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.25), inset 0 0 25px rgba(0, 0, 0, 0.85);
+    border: 1px solid #333;
+}
+
+.card-style-scifi .card-art {
+    background: var(--card-bg);
+    position: relative;
+}
+
+.card-style-scifi .card-art::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(90deg, rgba(0, 255, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(0, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 32px 32px;
+    opacity: 0.5;
+    z-index: 0;
+}
+
+.card-style-scifi .card-art::after {
+    content: "";
+    position: absolute;
+    top: 18px;
+    right: 24px;
+    width: 72px;
+    height: 72px;
+    border: 2px solid var(--card-secondary);
+    box-shadow: 0 0 12px rgba(255, 0, 255, 0.8);
+    transform: rotate(15deg);
+    z-index: 0;
+}
+
+.card-style-scifi .card-svg {
+    color: var(--card-primary);
+    filter: drop-shadow(0 0 10px var(--card-primary));
+}
+
+.card-style-scifi .cny-title {
+    text-shadow: 0 0 5px var(--card-primary);
+    font-family: "Courier New", monospace;
+}
+
+/* --- 4. InkWash 水墨風 --- */
+.card-style-inkwash {
+    --card-primary: #1a1a1a;
+    --card-secondary: #888888;
+    --card-bg: #f5f5f5 url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+    color: var(--card-primary);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+}
+
+.card-style-inkwash .card-art {
+    background: var(--card-bg);
+}
+
+.card-style-inkwash .card-art::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 70% 30%, rgba(0, 0, 0, 0.08), transparent 55%);
+    z-index: 0;
+}
+
+.card-style-inkwash .card-art::after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 60px;
+    height: 60px;
+    border: 2px solid rgba(160, 0, 0, 0.4);
+    background: rgba(160, 0, 0, 0.15);
+    transform: rotate(-8deg);
+    z-index: 0;
+}
+
+.card-style-inkwash .card-svg {
+    color: var(--card-primary);
+    opacity: 0.9;
+}
+
+.card-style-inkwash .cny-title {
+    font-family: "Times New Roman", serif;
+    letter-spacing: 2px;
+}
+
+/* --- 5. PaperCut 剪紙風 --- */
+.card-style-papercut {
+    --card-primary: #b22222;
+    --card-secondary: #ffd700;
+    --card-bg: #b22222;
+    color: #fff;
+    box-shadow: 0 4px 0 #800000;
+}
+
+.card-style-papercut .card-art {
+    background: radial-gradient(circle at 50% 20%, rgba(255, 215, 0, 0.2), transparent 55%),
+        var(--card-bg);
+    border: 10px solid #800000;
+}
+
+.card-style-papercut .card-art::before {
+    content: "";
+    position: absolute;
+    inset: 14px;
+    border: 2px dashed rgba(255, 215, 0, 0.6);
+    z-index: 0;
+}
+
+.card-style-papercut .card-art::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 15% 15%, rgba(255, 255, 255, 0.15) 0 12px, transparent 13px);
+    background-size: 60px 60px;
+    opacity: 0.4;
+    z-index: 0;
+}
+
+.card-style-papercut .card-svg {
+    color: #fff;
+    filter: drop-shadow(2px 2px 0px rgba(0,0,0,0.3));
+}
+
+.card-style-papercut .card-info {
+    background-color: #a01010;
+    color: white;
+}
+
+.card-style-papercut .card-description {
+    color: #ffebcd !important;
+}
+
+/* --- 6. Classical 古典風 --- */
+.card-style-classical {
+    --card-primary: #5c0e0e;
+    --card-secondary: #d4af37;
+    --card-bg: #f3e5ab;
+    color: var(--card-primary);
+    border: 4px double var(--card-primary);
+}
+
+.card-style-classical .card-art {
+    background: linear-gradient(180deg, #f8edc5 0%, #f0d9a5 100%);
+    border-bottom: 2px solid var(--card-primary);
+}
+
+.card-style-classical .card-art::before {
+    content: "";
+    position: absolute;
+    inset: 18px;
+    border: 1px solid rgba(92, 14, 14, 0.25);
+    z-index: 0;
+}
+
+.card-style-classical .card-art::after {
+    content: "";
+    position: absolute;
+    right: 26px;
+    bottom: 22px;
+    width: 64px;
+    height: 64px;
+    border: 2px solid rgba(92, 14, 14, 0.4);
+    background: rgba(92, 14, 14, 0.1);
+    z-index: 0;
+}
+
+.card-style-classical .card-svg {
+    color: var(--card-primary);
+}
+
+/* --- 7. Minimalist 極簡風 --- */
+.card-style-minimalist {
+    --card-primary: #333333;
+    --card-secondary: #999999;
+    --card-bg: #ffffff;
+    color: var(--card-primary);
+    border: 1px solid #eee;
+    box-shadow: none;
+}
+
+.card-style-minimalist:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.card-style-minimalist .card-art {
+    background: linear-gradient(180deg, #ffffff 0%, #f7f7f7 100%);
+}
+
+.card-style-minimalist .card-art::after {
+    content: "";
+    position: absolute;
+    right: 24px;
+    top: 24px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid var(--cny-red);
+    z-index: 0;
+}
+
+.card-style-minimalist .card-svg {
+    color: var(--card-primary);
+    stroke-width: 1.5px;
+}
+
+/* --- 8. FolkArt 年畫風 --- */
+.card-style-folkart {
+    --card-primary: #e60000;
+    --card-secondary: #ffcc00;
+    --card-accent: #00cc00;
+    --card-bg: #fff8e1;
+    color: #d00;
+    border: 4px solid var(--card-primary);
+}
+
+.card-style-folkart .card-art {
+    background: var(--card-bg);
+    background-image: repeating-linear-gradient(45deg, rgba(230, 0, 0, 0.15) 0 12px, transparent 12px 24px);
+    border-bottom: 4px solid var(--card-secondary);
+}
+
+.card-style-folkart .card-art::before {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border: 3px double var(--card-secondary);
+    z-index: 0;
+}
+
+.card-style-folkart .card-art::after {
+    content: "";
+    position: absolute;
+    left: 24px;
+    bottom: 20px;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 204, 0, 0.8) 0 30%, transparent 31%);
+    opacity: 0.6;
+    z-index: 0;
+}
+
+.card-style-folkart .card-svg {
+    color: var(--card-primary);
+}
+
+/* --- 9. Illustration 插畫風 --- */
+.card-style-illustration {
+    --card-primary: #d2691e;
+    --card-secondary: #ff7f50;
+    --card-bg: #fffaf0;
+    color: var(--card-primary);
+    border-radius: 8px;
+    border: 2px dashed #d2691e;
+}
+
+.card-style-illustration .card-art {
+    background: linear-gradient(180deg, #fffaf0 0%, #ffe8d6 100%);
+}
+
+.card-style-illustration .card-art::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(210, 105, 30, 0.08), transparent 60%);
+    z-index: 0;
+}
+
+.card-style-illustration .card-art::after {
+    content: "";
+    position: absolute;
+    right: 30px;
+    top: 25px;
+    width: 40px;
+    height: 60px;
+    border-radius: 10px;
+    background: rgba(255, 127, 80, 0.25);
+    box-shadow: 0 0 0 2px rgba(210, 105, 30, 0.4);
+    z-index: 0;
+}
+
+.card-style-illustration .card-svg {
+    color: var(--card-secondary);
+}
+
+/* --- 10. PopArt 普普風 --- */
+.card-style-popart {
+    --card-primary: #000000;
+    --card-secondary: #ffdd00;
+    --card-tertiary: #ff0099;
+    --card-bg: radial-gradient(circle, #ffdd00 20%, transparent 20%), radial-gradient(circle, #ffdd00 20%, transparent 20%);
+    background-color: #ffffff;
+    background-position: 0 0, 10px 10px;
+    background-size: 20px 20px;
+    color: #000;
+    border: 4px solid #000;
+}
+
+.card-style-popart .card-art {
+    background-color: #00bfff;
+    background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.35) 0 10px, transparent 10px 20px);
+    border-bottom: 4px solid #000;
+}
+
+.card-style-popart .card-art::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 20% 20%, rgba(255, 221, 0, 0.8) 0 14%, transparent 15%),
+        radial-gradient(circle at 80% 35%, rgba(255, 0, 153, 0.6) 0 10%, transparent 11%);
+    opacity: 0.6;
+    z-index: 0;
+}
+
+.card-style-popart .card-svg {
+    color: #ff0099;
+    filter: drop-shadow(4px 4px 0 #000);
+}
+
+/* ===== Base SVG Styling & Animations ===== */
+
+.card-svg .horse-figure {
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-origin: center;
+}
+
+.card-detail:hover .card-svg .horse-figure {
+    transform: scale(1.1) rotate(-2deg);
+}
+
+/* Specific Animation tweaks per style */
+.card-style-scifi .card-svg .horse-figure {
+    animation: pulse-glow 2s infinite alternate;
+}
+
+@keyframes pulse-glow {
+    from { filter: drop-shadow(0 0 5px #00ffff); }
+    to { filter: drop-shadow(0 0 15px #00ffff); }
+}
+
+.card-style-cute .card-svg .horse-figure {
+    animation: bounce-soft 3s infinite;
+}
+
+@keyframes bounce-soft {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}

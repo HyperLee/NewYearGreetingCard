@@ -1,0 +1,37 @@
+﻿{
+  "capturedAt": "2026-02-13T00:32:29.1311164+08:00",
+  "method": "Invoke-WebRequest + Measure-Command response-time proxy (server+first byte) for local FCP/LCP check",
+  "targets": {
+    "fcpSeconds": 1.5,
+    "lcpSeconds": 2.5
+  },
+  "results": [
+    {
+      "url": "http://localhost:5000/",
+      "samplesMs": [
+        7.42,
+        5.44,
+        4.71
+      ],
+      "averageMs": 5.86
+    },
+    {
+      "url": "http://localhost:5000/Cards",
+      "samplesMs": [
+        5.76,
+        5.76,
+        4.99
+      ],
+      "averageMs": 5.5
+    },
+    {
+      "url": "http://localhost:5000/Cards/Detail?id=1",
+      "samplesMs": [
+        6.22,
+        16.78,
+        5.48
+      ],
+      "averageMs": 9.49
+    }
+  ]
+}

@@ -46,3 +46,52 @@ button.accept-policy {
   white-space: nowrap;
   line-height: 60px;
 }
+
+/* === Card Navigation Styles (T031) === */
+
+.card-navigation-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.card-nav-link {
+  padding: 0.35rem 0.65rem;
+  border-radius: 0.375rem;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  color: #555;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.card-nav-link:hover {
+  background-color: rgba(200, 35, 51, 0.1);
+  color: #c82333;
+  text-decoration: none;
+}
+
+.card-nav-link.active {
+  background-color: #c82333;
+  color: #fff;
+  font-weight: 600;
+}
+
+.card-nav-link.active:hover {
+  background-color: #a71d2a;
+  color: #fff;
+}
+
+/* Previous / Next navigation buttons */
+
+.card-navigation-buttons {
+  margin-bottom: 2rem;
+}
+
+.card-nav-prev,
+.card-nav-next {
+  min-width: 120px;
+  text-align: center;
+}
